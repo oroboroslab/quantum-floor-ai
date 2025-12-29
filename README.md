@@ -39,10 +39,10 @@ AXIS-7B-C (48MB) - 300X SMALLER
 
 ```bash
 # REGIS-7B-C - Full LLM with voice synthesis
-ollama run oroboroslab/regis-7b-c
+ollama run oroboroslabs/regis-7b-c
 
 # AXIS-7B-C - Ultra-fast (<20ms) speech
-ollama run oroboroslab/axis-7b-c
+ollama run oroboroslabs/axis-7b-c
 ```
 
 ### Via Python
