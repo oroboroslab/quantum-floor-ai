@@ -8,7 +8,7 @@ echo "========================================"
 echo "AXIS-7B-C Ollama Library Push"
 echo "========================================"
 
-MODEL_NAME="quantum-floor-ai/axis-7b-c"
+MODEL_NAME="oroboroslab/axis-7b-c"
 VERSION="1.0.0"
 
 if ! ollama list &> /dev/null; then

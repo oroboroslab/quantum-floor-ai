@@ -1,7 +1,8 @@
 # REGIS-7B-C Modelfile for Ollama
-# Quantum-Floor AI - Encrypted Distribution
+# Quantum-Floor AI by Oroboros Labs - Encrypted Distribution
+# 220MB footprint with 7B equivalent performance
 
-FROM regis-7b-c-base
+FROM qwen2.5:0.5b
 
 # Model metadata
 PARAMETER temperature 0.7

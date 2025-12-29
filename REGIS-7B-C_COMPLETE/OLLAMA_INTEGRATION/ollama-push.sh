@@ -9,7 +9,7 @@ echo "REGIS-7B-C Ollama Library Push"
 echo "========================================"
 
 # Configuration
-MODEL_NAME="quantum-floor-ai/regis-7b-c"
+MODEL_NAME="oroboroslab/regis-7b-c"
 VERSION="1.0.0"
 
 # Check Ollama login

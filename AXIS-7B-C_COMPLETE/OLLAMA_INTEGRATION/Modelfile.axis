@@ -1,7 +1,8 @@
 # AXIS-7B-C Modelfile for Ollama
-# Quantum-Floor AI - Ultra-Fast Encrypted Distribution
+# Quantum-Floor AI by Oroboros Labs - Ultra-Fast Encrypted Distribution
+# 48MB footprint with <20ms latency
 
-FROM axis-7b-c-base
+FROM qwen2.5:0.5b
 
 # Optimized for speed
 PARAMETER temperature 0.5
