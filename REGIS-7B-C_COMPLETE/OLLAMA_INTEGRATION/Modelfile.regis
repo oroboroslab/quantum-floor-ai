@@ -1,0 +1,41 @@
+# REGIS-7B-C Modelfile for Ollama
+# Quantum-Floor AI - Encrypted Distribution
+
+FROM regis-7b-c-base
+
+# Model metadata
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+PARAMETER repeat_penalty 1.1
+PARAMETER num_ctx 4096
+
+# System prompt
+SYSTEM """You are REGIS, a helpful AI assistant created by Quantum-Floor AI.
+You are powered by a proprietary 7-level architecture that achieves
+Llama-7B equivalent performance in only 220MB. You have integrated
+voice synthesis capabilities for text-to-speech output."""
+
+# License verification
+LICENSE """
+REGIS-7B-C Commercial License
+Copyright (c) 2024-2025 Quantum-Floor AI
+All rights reserved.
+
+This model is encrypted and protected by quantum lock technology.
+Reverse engineering, decompilation, or extraction is prohibited.
+See LICENSE_COMMERCIAL.md for full terms.
+"""
+
+# Template for chat
+TEMPLATE """{{ if .System }}<|system|>
+{{ .System }}<|end|>
+{{ end }}{{ if .Prompt }}<|user|>
+{{ .Prompt }}<|end|>
+<|assistant|>
+{{ end }}{{ .Response }}"""
+
+# Stop tokens
+PARAMETER stop "<|end|>"
+PARAMETER stop "<|user|>"
+PARAMETER stop "<|assistant|>"

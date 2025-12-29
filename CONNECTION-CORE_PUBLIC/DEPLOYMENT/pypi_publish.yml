@@ -1,0 +1,40 @@
+# Connection-Core PyPI Publish Workflow
+
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install build tools
+        run: pip install build twine
+
+      - name: Build package
+        run: |
+          cd CONNECTION-CORE_PUBLIC/SOURCE_CODE
+          python -m build
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          cd CONNECTION-CORE_PUBLIC/SOURCE_CODE
+          twine upload dist/*
+
+      - name: Verify installation
+        run: |
+          pip install connection-core
+          python -c "from connection_core import MemoryEngine; print('Install OK')"

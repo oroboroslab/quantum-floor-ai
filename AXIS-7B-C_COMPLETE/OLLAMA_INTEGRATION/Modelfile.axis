@@ -1,0 +1,30 @@
+# AXIS-7B-C Modelfile for Ollama
+# Quantum-Floor AI - Ultra-Fast Encrypted Distribution
+
+FROM axis-7b-c-base
+
+# Optimized for speed
+PARAMETER temperature 0.5
+PARAMETER top_p 0.8
+PARAMETER top_k 20
+PARAMETER repeat_penalty 1.0
+PARAMETER num_ctx 2048
+PARAMETER num_batch 512
+PARAMETER num_gpu 99
+
+# System prompt (minimal for speed)
+SYSTEM """You are AXIS, an ultra-fast AI assistant optimized for <20ms response times."""
+
+# License
+LICENSE """
+AXIS-7B-C Commercial License
+Copyright (c) 2024-2025 Quantum-Floor AI
+All rights reserved.
+Encrypted and protected by quantum lock technology.
+"""
+
+# Optimized template
+TEMPLATE """{{ if .Prompt }}{{ .Prompt }}{{ end }}{{ .Response }}"""
+
+# Minimal stop tokens
+PARAMETER stop "<|end|>"

@@ -1,0 +1,32 @@
+# AXIS-7B-C Ollama Publish Workflow
+
+name: Publish AXIS to Ollama
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+
+      - name: Encrypt
+        run: |
+          cd AXIS-7B-C_COMPLETE/BUILD_SCRIPTS
+          chmod +x encrypt_axis.sh && ./encrypt_axis.sh
+
+      - name: Create model
+        run: |
+          cd AXIS-7B-C_COMPLETE
+          ollama create quantum-floor-ai/axis-7b-c -f OLLAMA_INTEGRATION/Modelfile.axis
+
+      - name: Push
+        run: |
+          echo "${{ secrets.OLLAMA_API_KEY }}" | ollama login
+          ollama push quantum-floor-ai/axis-7b-c

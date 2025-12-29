@@ -1,0 +1,143 @@
+QUANTUM-FLOOR AI COMMERCIAL LICENSE AGREEMENT
+
+Version 1.0
+Effective Date: January 1, 2025
+
+IMPORTANT: READ CAREFULLY BEFORE USING THIS SOFTWARE
+
+This Commercial License Agreement ("Agreement") is a legal agreement between you
+(either an individual or a single entity, "Licensee") and Quantum-Floor AI
+("Licensor") for the use of REGIS-7B-C, AXIS-7B-C, and related software
+products ("Software").
+
+BY INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND
+BY THE TERMS OF THIS AGREEMENT.
+
+1. GRANT OF LICENSE
+
+Subject to the terms of this Agreement, Licensor grants Licensee a non-exclusive,
+non-transferable, limited license to:
+
+a) Install and use the Software on systems owned or controlled by Licensee
+b) Use the Software for commercial purposes within the scope of the license type
+c) Create derivative works that incorporate the Software's API outputs
+
+2. LICENSE TYPES
+
+2.1 TRIAL LICENSE
+- Duration: 30 days or until December 31, 2025 (whichever is earlier)
+- Request Limit: 1,000 API calls
+- Features: Basic API access only
+- Commercial Use: Evaluation purposes only
+
+2.2 STANDARD LICENSE
+- Duration: 1 year from purchase date
+- Request Limit: 100,000 API calls per month
+- Features: Full API access, voice synthesis, batch processing
+- Commercial Use: Permitted
+
+2.3 ENTERPRISE LICENSE
+- Duration: As specified in enterprise agreement
+- Request Limit: Unlimited
+- Features: All features, priority support, custom deployment
+- Commercial Use: Permitted with extended rights
+
+3. RESTRICTIONS
+
+Licensee SHALL NOT:
+
+a) Reverse engineer, decompile, disassemble, or attempt to derive the source
+   code, algorithms, or internal structure of the Software
+
+b) Remove, alter, or obscure any proprietary notices, labels, or marks on
+   the Software
+
+c) Distribute, sublicense, rent, lease, or lend the Software to third parties
+   without prior written consent
+
+d) Use the Software to create a competing product or service
+
+e) Circumvent, disable, or interfere with any security features, including
+   but not limited to the Quantum Lock protection system
+
+f) Use the Software in any manner that violates applicable laws or regulations
+
+g) Attempt to extract, copy, or replicate the model weights or architecture
+
+4. INTELLECTUAL PROPERTY
+
+The Software, including all copies, modifications, and derivative works, is the
+exclusive property of Licensor and is protected by copyright, trade secret, and
+other intellectual property laws.
+
+The proprietary 7-level architecture, quantum lock system, and compression
+technology are trade secrets of Licensor.
+
+5. QUANTUM LOCK PROTECTION
+
+The Software incorporates Quantum Lock protection technology. Licensee
+acknowledges and agrees that:
+
+a) Any attempt to circumvent, disable, or interfere with Quantum Lock
+   constitutes a material breach of this Agreement
+
+b) Quantum Lock may collect anonymous usage data for license verification
+
+c) Tampering with Quantum Lock may result in automatic deactivation of
+   the Software
+
+6. SUPPORT AND UPDATES
+
+6.1 Trial License: Community support only
+6.2 Standard License: Email support, minor updates included
+6.3 Enterprise License: Priority support, all updates, custom assistance
+
+7. WARRANTY DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+LICENSOR DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE OR UNINTERRUPTED.
+
+8. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF
+PROFITS, DATA, OR USE, ARISING OUT OF OR RELATED TO THIS AGREEMENT.
+
+LICENSOR'S TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT PAID BY LICENSEE FOR
+THE SOFTWARE LICENSE.
+
+9. TERMINATION
+
+This Agreement is effective until terminated. Licensor may terminate this
+Agreement immediately upon notice if Licensee breaches any provision.
+
+Upon termination:
+a) All license rights immediately cease
+b) Licensee must destroy all copies of the Software
+c) Licensee must certify destruction in writing if requested
+
+10. GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws
+of [Jurisdiction], without regard to its conflict of law provisions.
+
+11. ENTIRE AGREEMENT
+
+This Agreement constitutes the entire agreement between the parties concerning
+the Software and supersedes all prior agreements and understandings.
+
+12. CONTACT
+
+For licensing inquiries:
+Email: licensing@quantum-floor.ai
+Web: https://quantum-floor.ai/licensing
+
+---
+
+BY USING THE SOFTWARE, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT,
+UNDERSTAND IT, AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS.
+
+Copyright (c) 2024-2025 Quantum-Floor AI. All Rights Reserved.

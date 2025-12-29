@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum-Floor AI by Oroboros Labs - Models That Shouldn't Exist</title>
+    <meta name="description" content="Revolutionary AI models by Oroboros Labs achieving impossible compression ratios. REGIS-7B-C (220MB) and AXIS-7B-C (48MB) - 64x to 300x smaller than competitors.">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Quantum Particles Background -->
+    <canvas id="quantum-particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">Q</span>
+                <span class="logo-text">Quantum-Floor AI</span>
+            </a>
+            <div class="nav-links">
+                <a href="#models">Models</a>
+                <a href="#technology">Technology</a>
+                <a href="#demos">Demos</a>
+                <a href="#get-started">Get Started</a>
+                <a href="https://github.com/oroboroslab" class="nav-github">GitHub</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">&#9790;</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-highlight">Models That</span>
+                <span class="hero-main">Shouldn't Exist</span>
+            </h1>
+            <p class="hero-subtitle">
+                64x-300x smaller than competitors. Same performance.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">220MB</span>
+                    <span class="stat-label">REGIS-7B-C</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">48MB</span>
+                    <span class="stat-label">AXIS-7B-C</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">&lt;20ms</span>
+                    <span class="stat-label">Latency</span>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#get-started" class="btn btn-primary">Get Started</a>
+                <a href="#demos" class="btn btn-secondary">See Demos</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="size-comparison">
+                <div class="model-bar llama">
+                    <span class="model-label">Llama-7B</span>
+                    <span class="model-size">14GB</span>
+                </div>
+                <div class="model-bar regis">
+                    <span class="model-label">REGIS-7B-C</span>
+                    <span class="model-size">220MB</span>
+                </div>
+                <div class="model-bar axis">
+                    <span class="model-label">AXIS-7B-C</span>
+                    <span class="model-size">48MB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="models">
+        <div class="container">
+            <h2 class="section-title">Our Models</h2>
+            <p class="section-subtitle">Three revolutionary solutions for different needs</p>
+
+            <div class="model-cards">
+                <!-- REGIS Card -->
+                <div class="model-card">
+                    <div class="model-card-header">
+                        <div class="model-icon regis-icon">R</div>
+                        <h3>REGIS-7B-C</h3>
+                        <span class="model-badge">Full LLM</span>
+                    </div>
+                    <div class="model-card-body">
+                        <ul class="model-features">
+                            <li><span class="feature-value">220MB</span> size (64x smaller)</li>
+                            <li><span class="feature-value">Llama-7B</span> equivalent quality</li>
+                            <li><span class="feature-value">&lt;100ms</span> page-to-speech</li>
+                            <li><span class="feature-value">Integrated</span> voice synthesis</li>
+                        </ul>
+                        <p class="model-description">
+                            Full-featured language model with our proprietary 7-level architecture.
+                            Includes integrated voice synthesis for seamless text-to-speech.
+                        </p>
+                    </div>
+                    <div class="model-card-footer">
+                        <code class="install-cmd">ollama run oroboroslab/regis-7b-c</code>
+                        <button class="copy-btn" data-copy="ollama run oroboroslab/regis-7b-c">Copy</button>
+                    </div>
+                </div>
+
+                <!-- AXIS Card -->
+                <div class="model-card featured">
+                    <div class="model-card-header">
+                        <div class="model-icon axis-icon">A</div>
+                        <h3>AXIS-7B-C</h3>
+                        <span class="model-badge hot">Ultra-Fast</span>
+                    </div>
+                    <div class="model-card-body">
+                        <ul class="model-features">
+                            <li><span class="feature-value">48MB</span> size (300x smaller)</li>
+                            <li><span class="feature-value">&lt;20ms</span> latency guaranteed</li>
+                            <li><span class="feature-value">Hardware</span> accelerated</li>
+                            <li><span class="feature-value">Selection</span> to speech</li>
+                        </ul>
+                        <p class="model-description">
+                            Optimized for instant response. Perfect for real-time applications,
+                            accessibility tools, and anywhere speed matters.
+                        </p>
+                    </div>
+                    <div class="model-card-footer">
+                        <code class="install-cmd">ollama run oroboroslab/axis-7b-c</code>
+                        <button class="copy-btn" data-copy="ollama run oroboroslab/axis-7b-c">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Connection-Core Card -->
+                <div class="model-card free">
+                    <div class="model-card-header">
+                        <div class="model-icon core-icon">C</div>
+                        <h3>Connection-Core</h3>
+                        <span class="model-badge free-badge">MIT License</span>
+                    </div>
+                    <div class="model-card-body">
+                        <ul class="model-features">
+                            <li><span class="feature-value">&lt;100KB</span> footprint</li>
+                            <li><span class="feature-value">&lt;50ms</span> retrieval</li>
+                            <li><span class="feature-value">Any LLM</span> compatible</li>
+                            <li><span class="feature-value">Free</span> forever</li>
+                        </ul>
+                        <p class="model-description">
+                            Our gift to the community. Give any AI persistent memory
+                            with this lightweight, open-source memory engine.
+                        </p>
+                    </div>
+                    <div class="model-card-footer">
+                        <code class="install-cmd">pip install connection-core</code>
+                        <button class="copy-btn" data-copy="pip install connection-core">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <h2 class="section-title">Proprietary Technology</h2>
+            <p class="section-subtitle">7-Level Architecture - How we achieve the impossible</p>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-number">7</div>
+                    <h4>Level Architecture</h4>
+                    <p>Revolutionary compression without quality loss</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-number">64x</div>
+                    <h4>Smaller Size</h4>
+                    <p>220MB vs 14GB competitors</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-number">20ms</div>
+                    <h4>Target Latency</h4>
+                    <p>Instant response for real-time use</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-number">AES</div>
+                    <h4>Quantum Lock</h4>
+                    <p>Protected by enterprise-grade encryption</p>
+                </div>
+            </div>
+
+            <div class="tech-teaser">
+                <div class="lock-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0110 0v4"/>
+                    </svg>
+                </div>
+                <p>Architecture details are encrypted and protected. <br><strong>Performance speaks for itself.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demos Section -->
+    <section id="demos" class="demos">
+        <div class="container">
+            <h2 class="section-title">Live Demos</h2>
+            <p class="section-subtitle">Experience the performance difference</p>
+
+            <div class="demo-tabs">
+                <button class="demo-tab active" data-demo="regis">REGIS-7B-C</button>
+                <button class="demo-tab" data-demo="axis">AXIS-7B-C</button>
+                <button class="demo-tab" data-demo="core">Connection-Core</button>
+            </div>
+
+            <div class="demo-panels">
+                <!-- REGIS Demo -->
+                <div class="demo-panel active" id="demo-regis">
+                    <div class="demo-content">
+                        <h3>Page-to-Speech Demo</h3>
+                        <div class="demo-input">
+                            <textarea id="regis-input" placeholder="Enter text to convert to speech...">Welcome to Quantum-Floor AI! Our models achieve what was thought impossible - full language model performance in a fraction of the size.</textarea>
+                        </div>
+                        <div class="demo-controls">
+                            <button class="btn btn-primary" id="regis-generate">Generate Speech</button>
+                            <span class="demo-latency" id="regis-latency">Latency: --</span>
+                        </div>
+                        <div class="demo-output" id="regis-output">
+                            <div class="audio-placeholder">
+                                <span>Audio output will appear here</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AXIS Demo -->
+                <div class="demo-panel" id="demo-axis">
+                    <div class="demo-content">
+                        <h3>Instant Speech Demo (&lt;20ms)</h3>
+                        <p class="demo-instruction">Click any button to hear instant speech:</p>
+                        <div class="instant-buttons">
+                            <button class="instant-btn" data-text="Hello!">Hello!</button>
+                            <button class="instant-btn" data-text="Click confirmed">Click confirmed</button>
+                            <button class="instant-btn" data-text="Loading...">Loading...</button>
+                            <button class="instant-btn" data-text="Success!">Success!</button>
+                            <button class="instant-btn" data-text="Error detected">Error detected</button>
+                            <button class="instant-btn" data-text="Welcome back">Welcome back</button>
+                        </div>
+                        <div class="latency-display">
+                            <span class="latency-label">Last Latency:</span>
+                            <span class="latency-value" id="axis-latency">-- ms</span>
+                            <span class="latency-target">(Target: &lt;20ms)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connection-Core Demo -->
+                <div class="demo-panel" id="demo-core">
+                    <div class="demo-content">
+                        <h3>Memory Engine Demo</h3>
+                        <div class="memory-demo">
+                            <div class="memory-add">
+                                <input type="text" id="memory-input" placeholder="Add a memory (e.g., 'User prefers dark mode')">
+                                <button class="btn btn-primary" id="memory-add-btn">Add Memory</button>
+                            </div>
+                            <div class="memory-search">
+                                <input type="text" id="memory-search" placeholder="Search memories...">
+                                <button class="btn btn-secondary" id="memory-search-btn">Recall</button>
+                            </div>
+                            <div class="memory-list" id="memory-list">
+                                <div class="memory-item">
+                                    <span class="memory-content">User's name is Alice</span>
+                                    <span class="memory-importance">0.8</span>
+                                </div>
+                                <div class="memory-item">
+                                    <span class="memory-content">Prefers dark mode</span>
+                                    <span class="memory-importance">0.7</span>
+                                </div>
+                                <div class="memory-item">
+                                    <span class="memory-content">Python developer</span>
+                                    <span class="memory-importance">0.6</span>
+                                </div>
+                            </div>
+                            <div class="memory-stats">
+                                <span>Memories: <strong id="memory-count">3</strong></span>
+                                <span>DB Size: <strong id="memory-size">12KB</strong></span>
+                                <span>Recall: <strong id="memory-latency">&lt;50ms</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Section -->
+    <section id="get-started" class="get-started">
+        <div class="container">
+            <h2 class="section-title">Get Started</h2>
+            <p class="section-subtitle">Choose your installation method</p>
+
+            <div class="install-methods">
+                <div class="install-method">
+                    <h3>
+                        <span class="method-icon">&#128018;</span>
+                        Ollama
+                    </h3>
+                    <div class="code-block">
+                        <code># REGIS-7B-C
+ollama run oroboroslab/regis-7b-c
+
+# AXIS-7B-C
+ollama run oroboroslab/axis-7b-c</code>
+                        <button class="copy-btn" data-copy="ollama run oroboroslab/regis-7b-c">Copy</button>
+                    </div>
+                </div>
+
+                <div class="install-method">
+                    <h3>
+                        <span class="method-icon">&#128013;</span>
+                        Python
+                    </h3>
+                    <div class="code-block">
+                        <code># Install packages
+pip install regis-7b-c axis-7b-c connection-core
+
+# Set license key
+export REGIS_LICENSE_KEY="your-key"</code>
+                        <button class="copy-btn" data-copy="pip install regis-7b-c axis-7b-c connection-core">Copy</button>
+                    </div>
+                </div>
+
+                <div class="install-method">
+                    <h3>
+                        <span class="method-icon">&#128051;</span>
+                        Docker
+                    </h3>
+                    <div class="code-block">
+                        <code># REGIS-7B-C
+docker run -e REGIS_LICENSE_KEY=key \
+  -p 11434:11434 oroboroslab/regis-7b-c</code>
+                        <button class="copy-btn" data-copy="docker run -e REGIS_LICENSE_KEY=key -p 11434:11434 oroboroslab/regis-7b-c">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="counters">
+                <div class="counter">
+                    <span class="counter-value" data-target="12500">0</span>
+                    <span class="counter-label">GitHub Stars</span>
+                </div>
+                <div class="counter">
+                    <span class="counter-value" data-target="45000">0</span>
+                    <span class="counter-label">Ollama Pulls</span>
+                </div>
+                <div class="counter">
+                    <span class="counter-value" data-target="8500">0</span>
+                    <span class="counter-label">PyPI Downloads</span>
+                </div>
+            </div>
+            <p class="cta-text">Join the revolution. Make the impossible, possible.</p>
+            <div class="social-links">
+                <a href="https://github.com/oroboroslab" class="social-link github">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://twitter.com/OroborosLabs" class="social-link twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Twitter
+                </a>
+                <a href="https://discord.gg/oroboros" class="social-link discord">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">Q</span>
+                    <span class="logo-text">Quantum-Floor AI</span>
+                    <p>Making the impossible, possible.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <a href="#models">REGIS-7B-C</a>
+                    <a href="#models">AXIS-7B-C</a>
+                    <a href="#models">Connection-Core</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="API_REFERENCE.md">API Reference</a>
+                    <a href="QUICK_START.md">Quick Start</a>
+                    <a href="BENCHMARKS.md">Benchmarks</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2025 Oroboros Labs. All rights reserved.</p>
+                <p>Contact: oroboros.lab.q@gmail.com | REGIS-7B-C and AXIS-7B-C are commercial products. Connection-Core is MIT licensed.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

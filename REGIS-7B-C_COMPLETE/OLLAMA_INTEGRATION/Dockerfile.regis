@@ -1,0 +1,51 @@
+# REGIS-7B-C Encrypted Docker Image
+# Oroboros Labs - Quantum-Floor AI
+
+FROM ollama/ollama:latest
+
+LABEL maintainer="Oroboros Labs <oroboros.lab.q@gmail.com>"
+LABEL description="REGIS-7B-C: 220MB encrypted language model with voice synthesis"
+LABEL version="1.0.0"
+
+# Install Python for decryption runtime
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install decryption dependencies
+RUN pip3 install cryptography numpy
+
+# Create app directory
+WORKDIR /app
+
+# Copy encrypted model files (never decrypted on disk)
+COPY ENCRYPTED_DISTRIBUTION/regis_7b_c.bin.enc /app/encrypted/
+COPY ENCRYPTED_DISTRIBUTION/regis_weights.gguf.enc /app/encrypted/
+COPY ENCRYPTED_DISTRIBUTION/regis_lock.bin /app/encrypted/
+COPY ENCRYPTED_DISTRIBUTION/regis_license.key /app/encrypted/
+
+# Copy Ollama configuration
+COPY OLLAMA_INTEGRATION/Modelfile.regis /app/
+
+# Copy runtime scripts
+COPY BUILD_SCRIPTS/verify_license.py /app/scripts/
+COPY BUILD_SCRIPTS/decrypt_runtime.py /app/scripts/
+
+# Copy entrypoint
+COPY OLLAMA_INTEGRATION/docker-entrypoint.sh /app/
+RUN chmod +x /app/docker-entrypoint.sh
+
+# Environment
+ENV REGIS_SECURE_MODE=1
+ENV OLLAMA_HOST=0.0.0.0
+
+# Expose Ollama port
+EXPOSE 11434
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:11434/api/tags || exit 1
+
+# Entrypoint
+ENTRYPOINT ["/app/docker-entrypoint.sh"]

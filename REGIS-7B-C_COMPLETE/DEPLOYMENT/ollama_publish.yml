@@ -1,0 +1,46 @@
+# REGIS-7B-C Ollama Library Publish Workflow
+# Quantum-Floor AI
+
+name: Publish to Ollama Library
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish-ollama:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+
+      - name: Run encryption
+        run: |
+          cd REGIS-7B-C_COMPLETE/BUILD_SCRIPTS
+          chmod +x encrypt_regis.sh
+          ./encrypt_regis.sh
+
+      - name: Create Ollama model
+        run: |
+          cd REGIS-7B-C_COMPLETE
+          ollama create quantum-floor-ai/regis-7b-c -f OLLAMA_INTEGRATION/Modelfile.regis
+
+      - name: Login to Ollama
+        run: |
+          echo "${{ secrets.OLLAMA_API_KEY }}" | ollama login
+
+      - name: Push to Ollama Library
+        run: |
+          ollama push quantum-floor-ai/regis-7b-c:latest
+          ollama push quantum-floor-ai/regis-7b-c:${{ github.event.release.tag_name }}
+
+      - name: Verify publication
+        run: |
+          echo "Model published successfully!"
+          echo "Users can now run: ollama run quantum-floor-ai/regis-7b-c"

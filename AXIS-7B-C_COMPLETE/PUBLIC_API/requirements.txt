@@ -1,0 +1,17 @@
+# AXIS-7B-C Public API Dependencies
+# Minimal dependencies for maximum speed
+
+# Required
+numpy>=1.21.0
+cryptography>=41.0.0
+
+# Optional: GPU acceleration (recommended)
+# torch>=2.0.0
+# cuda-python>=12.0.0
+
+# Optional: NPU acceleration
+# openvino>=2023.0.0
+
+# Development
+# pytest>=7.0.0
+# pytest-benchmark>=4.0.0
