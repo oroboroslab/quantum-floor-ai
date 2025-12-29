@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 10px 3px rgba(16, 185, 129, 0.5); }
+        }
+    </style>
 </head>
 <body>
     <!-- Quantum Particles Background -->
@@ -26,7 +32,7 @@
                 <a href="#technology">Technology</a>
                 <a href="#demos">Demos</a>
                 <a href="#get-started">Get Started</a>
-                <a href="connection-core.html" style="color: #10b981;">Memory Core</a>
+                <a href="connection-core.html" class="nav-memory-core" style="color: #10b981; position: relative;">Memory Core <span style="background: linear-gradient(135deg, #10b981, #059669); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; margin-left: 4px; animation: pulse 2s infinite;">FREE</span></a>
                 <a href="https://github.com/oroboroslab" class="nav-github">GitHub</a>
             </div>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
