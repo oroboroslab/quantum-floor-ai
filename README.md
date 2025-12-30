@@ -3,7 +3,9 @@
 **Breaking What Should Be Impossible**
 
 [![License](https://img.shields.io/badge/License-Commercial-blue.svg)](LICENSE_COMMERCIAL.md)
-[![MIT License](https://img.shields.io/badge/Connection--Core-MIT-green.svg)](CONNECTION-CORE_PUBLIC/DOCUMENTATION/LICENSE_MIT.txt)
+[![MIT License](https://img.shields.io/badge/Connection--Core-MIT-green.svg)](https://github.com/oroboroslab/connection-core)
+[![Website](https://img.shields.io/badge/Website-oroboroslab.github.io-purple.svg)](https://oroboroslab.github.io)
+[![Connection-Core Docs](https://img.shields.io/badge/Memory%20Docs-connection--core-00d4aa.svg)](https://oroboroslab.github.io/connection-core/)
 
 ## THE BREAKTHROUGH
 
@@ -137,12 +139,15 @@ Lightweight memory engine - our gift to the AI community.
 - **Latency:** <50ms retrieval
 - **Features:** Persistent memory, semantic search, conversation history
 - **License:** MIT (fully open source)
+- **Repository:** [github.com/oroboroslab/connection-core](https://github.com/oroboroslab/connection-core)
+- **Documentation:** [oroboroslab.github.io/connection-core](https://oroboroslab.github.io/connection-core/)
 
 ## Documentation
 
 - [API Reference](API_REFERENCE.md) - Complete API documentation
 - [Quick Start Guide](QUICK_START.md) - Get started in minutes
 - [Benchmarks](BENCHMARKS.md) - Performance data
+- [Connection-Core Docs](https://oroboroslab.github.io/connection-core/) - Free memory engine documentation
 - [Commercial License](LICENSE_COMMERCIAL.md) - License terms
 
 ## Contact
