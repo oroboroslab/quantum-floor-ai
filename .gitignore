@@ -1,0 +1,22 @@
+# Git ignore file for OROBOROS Programs
+# Only include README files and quantum calculations
+
+# Ignore all files and directories by default
+*
+
+# Except these specific files we want to include
+!.gitignore
+!README.md
+!OLLAMA_README.md
+!AION-30GB_README.md
+
+# Ignore all directories
+*/
+
+# Except these specific directories we want to include
+!ai-quantum-floor-project/
+
+# But ignore contents of included directories except READMEs
+ai-quantum-floor-project/*
+!ai-quantum-floor-project/README.md
+!ai-quantum-floor-project/*.md
