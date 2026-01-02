@@ -1,0 +1,49 @@
+# AXIS-7B-C Ultra-Fast Docker Image
+# Oroboros Labs - Quantum-Floor AI
+
+FROM ollama/ollama:latest
+
+LABEL maintainer="Oroboros Labs <oroboros.lab.q@gmail.com>"
+LABEL description="AXIS-7B-C: 48MB ultra-fast model with <20ms latency"
+LABEL version="1.0.0"
+
+# Install minimal dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-minimal \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install decryption dependencies
+RUN pip3 install --no-cache-dir cryptography numpy
+
+WORKDIR /app
+
+# Copy encrypted files
+COPY ENCRYPTED_DISTRIBUTION/axis_7b_c.bin.enc /app/encrypted/
+COPY ENCRYPTED_DISTRIBUTION/axis_weights.gguf.enc /app/encrypted/
+COPY ENCRYPTED_DISTRIBUTION/axis_lock.bin /app/encrypted/
+COPY ENCRYPTED_DISTRIBUTION/axis_license.key /app/encrypted/
+
+# Copy configuration
+COPY OLLAMA_INTEGRATION/Modelfile.axis /app/
+
+# Copy scripts
+COPY BUILD_SCRIPTS/verify_license.py /app/scripts/
+
+# Copy entrypoint
+COPY OLLAMA_INTEGRATION/docker-entrypoint.sh /app/
+RUN chmod +x /app/docker-entrypoint.sh
+
+# Optimized environment
+ENV AXIS_PRELOAD=1
+ENV AXIS_CACHE_SIZE=1000
+ENV OLLAMA_HOST=0.0.0.0
+ENV OLLAMA_NUM_PARALLEL=4
+ENV OLLAMA_FLASH_ATTENTION=1
+
+EXPOSE 11434
+
+HEALTHCHECK --interval=10s --timeout=5s --start-period=3s --retries=3 \
+    CMD curl -f http://localhost:11434/api/tags || exit 1
+
+ENTRYPOINT ["/app/docker-entrypoint.sh"]

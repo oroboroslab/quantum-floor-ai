@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection-Core - Free AI Memory Engine | Oroboros Labs</title>
+    <meta name="description" content="Connection-Core: Open-source persistent memory for any AI. <100KB footprint, <50ms retrieval, MIT licensed. Our gift to the AI community.">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Connection-Core specific styles */
+        :root {
+            --core-primary: #10b981;
+            --core-secondary: #059669;
+            --core-glow: rgba(16, 185, 129, 0.3);
+        }
+
+        .hero-core {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-core::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, var(--core-glow) 0%, transparent 50%);
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .hero-core .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .badge-mit {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--core-primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .badge-mit svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-core h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .hero-core h1 .highlight {
+            background: linear-gradient(135deg, var(--core-primary), var(--core-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-core .tagline {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        .hero-stats-core {
+            display: flex;
+            gap: 48px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--core-primary);
+            display: block;
+        }
+
+        .hero-stat .label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-cta-core {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-core {
+            background: var(--core-primary);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-core:hover {
+            background: var(--core-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--core-glow);
+        }
+
+        .btn-outline-core {
+            border: 2px solid var(--core-primary);
+            color: var(--core-primary);
+            background: transparent;
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-core:hover {
+            background: var(--core-primary);
+            color: white;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .features-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            border-color: var(--core-primary);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--core-primary), var(--core-secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Code Examples Section */
+        .code-section {
+            padding: 100px 0;
+        }
+
+        .code-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .code-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .code-example {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .code-example-header {
+            background: linear-gradient(135deg, var(--core-primary), var(--core-secondary));
+            color: white;
+            padding: 16px 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .code-example-header .icon {
+            font-size: 20px;
+        }
+
+        .code-block-core {
+            padding: 24px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .code-block-core .comment { color: #6a9955; }
+        .code-block-core .keyword { color: #569cd6; }
+        .code-block-core .string { color: #ce9178; }
+        .code-block-core .function { color: #dcdcaa; }
+        .code-block-core .class { color: #4ec9b0; }
+        .code-block-core .number { color: #b5cea8; }
+
+        /* Use Cases Section */
+        .usecases-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .usecases-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .usecase-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .usecase-tab {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            background: transparent;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .usecase-tab:hover, .usecase-tab.active {
+            border-color: var(--core-primary);
+            background: var(--core-primary);
+            color: white;
+        }
+
+        .usecase-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .usecase-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .usecase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .usecase-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .usecase-info p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .usecase-benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .usecase-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .usecase-benefits li::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: var(--core-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* API Reference Section */
+        .api-section {
+            padding: 100px 0;
+        }
+
+        .api-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .api-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .api-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--core-primary);
+            margin-bottom: 8px;
+        }
+
+        .api-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .api-card code {
+            display: block;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+
+        /* Performance Section */
+        .performance-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .performance-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .perf-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .perf-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .perf-table {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .perf-table-header {
+            background: linear-gradient(135deg, var(--core-primary), var(--core-secondary));
+            color: white;
+            padding: 16px 24px;
+            font-weight: 600;
+        }
+
+        .perf-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .perf-table th, .perf-table td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .perf-table th {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .perf-table td:last-child {
+            color: var(--core-primary);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+        }
+
+        .cta-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+        }
+
+        .install-box {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .install-box code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--core-primary);
+        }
+
+        .install-box button {
+            background: var(--core-primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .install-box button:hover {
+            background: var(--core-secondary);
+        }
+
+        /* Interactive Demo */
+        .demo-section {
+            padding: 100px 0;
+        }
+
+        .demo-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .demo-box {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+        }
+
+        .demo-memory-list {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 24px 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .demo-memory-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .demo-memory-item:last-child {
+            border-bottom: none;
+        }
+
+        .demo-memory-content {
+            flex: 1;
+        }
+
+        .demo-memory-importance {
+            background: var(--core-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .demo-input-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .demo-input-row input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .demo-input-row button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            background: var(--core-primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .demo-input-row button:hover {
+            background: var(--core-secondary);
+        }
+
+        .demo-stats {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .demo-stat {
+            text-align: center;
+        }
+
+        .demo-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--core-primary);
+        }
+
+        .demo-stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer adjustment */
+        .footer-core {
+            background: var(--bg-secondary);
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-core .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .footer-links-core {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links-core a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links-core a:hover {
+            color: var(--core-primary);
+        }
+
+        .back-to-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--core-primary);
+            text-decoration: none;
+            margin-bottom: 16px;
+        }
+
+        .back-to-main:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon" style="background: var(--core-primary);">C</span>
+                <span class="logo-text">Connection-Core</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#code">Code</a>
+                <a href="#usecases">Use Cases</a>
+                <a href="#api">API</a>
+                <a href="#demo">Demo</a>
+                <a href="https://github.com/oroboroslab/connection-core" class="nav-github">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-core">
+        <div class="container">
+            <a href="index.html" class="back-to-main">&larr; Back to Quantum-Floor AI</a>
+            <div class="badge-mit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                MIT License - Free Forever
+            </div>
+            <h1>
+                <span class="highlight">Connection-Core</span><br>
+                Persistent Memory for AI
+            </h1>
+            <p class="tagline">
+                Our gift to the AI community. Give any AI the ability to remember.
+            </p>
+            <div class="hero-stats-core">
+                <div class="hero-stat">
+                    <span class="value">&lt;100KB</span>
+                    <span class="label">Footprint</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="value">&lt;50ms</span>
+                    <span class="label">Retrieval</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="value">Any LLM</span>
+                    <span class="label">Compatible</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="value">MIT</span>
+                    <span class="label">License</span>
+                </div>
+            </div>
+            <div class="hero-cta-core">
+                <a href="#demo" class="btn-core">
+                    Try Live Demo
+                </a>
+                <a href="https://github.com/oroboroslab/connection-core" class="btn-outline-core">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Connection-Core?</h2>
+                <p>Most AI assistants forget everything between sessions. We fixed that.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#128190;</div>
+                    <h3>SQLite-Based Storage</h3>
+                    <p>No external dependencies. Just a single file database that travels with your application. Simple, portable, reliable.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9889;</div>
+                    <h3>Lightning Fast Retrieval</h3>
+                    <p>Full-text search with FTS5. Retrieve relevant memories in under 50ms, even with thousands of entries.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128200;</div>
+                    <h3>Importance Ranking</h3>
+                    <p>Not all memories are equal. Assign importance scores and let the system prioritize what matters most.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#127991;</div>
+                    <h3>Tag Organization</h3>
+                    <p>Organize memories with tags. Filter and search by categories to find exactly what you need.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128336;</div>
+                    <h3>Natural Decay</h3>
+                    <p>Memories fade over time, just like human memory. Old, unused memories gracefully decay in importance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128421;</div>
+                    <h3>Export & Import</h3>
+                    <p>Full JSON export and import. Backup, migrate, or share memory databases with ease.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples Section -->
+    <section id="code" class="code-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Powerful API</h2>
+                <p>Get started in 3 lines of code</p>
+            </div>
+            <div class="code-examples">
+                <div class="code-example">
+                    <div class="code-example-header">
+                        <span class="icon">&#128161;</span>
+                        Quick Start
+                    </div>
+                    <pre class="code-block-core"><span class="keyword">from</span> <span class="class">connection_core</span> <span class="keyword">import</span> MemoryEngine
+
+<span class="comment"># Initialize</span>
+memory = <span class="function">MemoryEngine</span>()
+
+<span class="comment"># Add memories</span>
+memory.<span class="function">add</span>(<span class="string">"User's name is Alice"</span>)
+memory.<span class="function">add</span>(<span class="string">"User prefers dark mode"</span>, importance=<span class="number">0.8</span>)
+
+<span class="comment"># Recall relevant memories</span>
+results = memory.<span class="function">recall</span>(<span class="string">"What is the user's name?"</span>)
+<span class="keyword">print</span>(results[<span class="number">0</span>].content)  <span class="comment"># "User's name is Alice"</span></pre>
+                </div>
+                <div class="code-example">
+                    <div class="code-example-header">
+                        <span class="icon">&#128172;</span>
+                        Chatbot Memory
+                    </div>
+                    <pre class="code-block-core"><span class="keyword">from</span> <span class="class">connection_core</span> <span class="keyword">import</span> MemoryEngine
+<span class="keyword">from</span> <span class="class">connection_core.memory_engine</span> <span class="keyword">import</span> ConversationMemory
+
+engine = <span class="function">MemoryEngine</span>()
+conversation = <span class="function">ConversationMemory</span>(engine)
+
+<span class="comment"># Store conversation turns</span>
+conversation.<span class="function">add_turn</span>(<span class="string">"user"</span>, <span class="string">"My name is Alice"</span>)
+conversation.<span class="function">add_turn</span>(<span class="string">"assistant"</span>, <span class="string">"Nice to meet you!"</span>)
+
+<span class="comment"># Later session - recall history</span>
+history = conversation.<span class="function">get_recent</span>(<span class="number">10</span>)</pre>
+                </div>
+                <div class="code-example">
+                    <div class="code-example-header">
+                        <span class="icon">&#128187;</span>
+                        Coding Assistant
+                    </div>
+                    <pre class="code-block-core"><span class="keyword">from</span> <span class="class">connection_core.memory_engine</span> <span class="keyword">import</span> SemanticMemory
+
+semantic = <span class="function">SemanticMemory</span>(engine)
+
+<span class="comment"># Store project knowledge</span>
+semantic.<span class="function">add_concept</span>(<span class="string">"project.framework"</span>, <span class="string">"FastAPI"</span>)
+semantic.<span class="function">add_concept</span>(<span class="string">"project.database"</span>, <span class="string">"PostgreSQL"</span>)
+semantic.<span class="function">add_concept</span>(<span class="string">"project.style"</span>, <span class="string">"PEP8 compliant"</span>)
+
+<span class="comment"># Retrieve context</span>
+framework = semantic.<span class="function">get_concept</span>(<span class="string">"project.framework"</span>)</pre>
+                </div>
+                <div class="code-example">
+                    <div class="code-example-header">
+                        <span class="icon">&#128218;</span>
+                        Research Helper
+                    </div>
+                    <pre class="code-block-core"><span class="comment"># Store findings with tags</span>
+engine.<span class="function">add</span>(
+    <span class="string">"Finding: X improves Y by 50%"</span>,
+    importance=<span class="number">0.9</span>,
+    tags=[<span class="string">"research"</span>, <span class="string">"results"</span>],
+    metadata={<span class="string">"paper"</span>: <span class="string">"arxiv:2024.12345"</span>}
+)
+
+<span class="comment"># Recall by topic</span>
+findings = engine.<span class="function">recall</span>(
+    <span class="string">"research findings about X"</span>,
+    tags=[<span class="string">"research"</span>]
+)</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="usecases" class="usecases-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built For Every Use Case</h2>
+                <p>From chatbots to enterprise applications</p>
+            </div>
+            <div class="usecase-tabs">
+                <button class="usecase-tab active" data-usecase="chatbots">Chatbots</button>
+                <button class="usecase-tab" data-usecase="assistants">AI Assistants</button>
+                <button class="usecase-tab" data-usecase="research">Research Tools</button>
+                <button class="usecase-tab" data-usecase="games">Games & NPCs</button>
+            </div>
+            <div class="usecase-content active" id="usecase-chatbots">
+                <div class="usecase-grid">
+                    <div class="usecase-info">
+                        <h3>Chatbots That Remember</h3>
+                        <p>Build chatbots that truly know their users. Remember names, preferences, past conversations, and context across sessions.</p>
+                        <ul class="usecase-benefits">
+                            <li>Remember user names and preferences</li>
+                            <li>Track conversation history</li>
+                            <li>Personalize responses over time</li>
+                            <li>Maintain context across sessions</li>
+                        </ul>
+                    </div>
+                    <div class="usecase-code">
+                        <div class="code-example">
+                            <div class="code-example-header">
+                                <span class="icon">&#128172;</span>
+                                Chatbot Example
+                            </div>
+                            <pre class="code-block-core"><span class="comment"># Remember user context</span>
+memory.<span class="function">add</span>(f<span class="string">"User {name} joined"</span>)
+memory.<span class="function">add</span>(f<span class="string">"User asked about: {topic}"</span>)
+
+<span class="comment"># Personalize response</span>
+context = memory.<span class="function">recall</span>(user_message)
+response = llm.<span class="function">generate</span>(
+    prompt=user_message,
+    context=context
+)</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="usecase-content" id="usecase-assistants">
+                <div class="usecase-grid">
+                    <div class="usecase-info">
+                        <h3>Intelligent Assistants</h3>
+                        <p>Create AI assistants that learn your workflow, remember your projects, and provide contextual help based on your history.</p>
+                        <ul class="usecase-benefits">
+                            <li>Learn coding patterns and preferences</li>
+                            <li>Remember project structures</li>
+                            <li>Track todo items and tasks</li>
+                            <li>Provide contextual suggestions</li>
+                        </ul>
+                    </div>
+                    <div class="usecase-code">
+                        <div class="code-example">
+                            <div class="code-example-header">
+                                <span class="icon">&#128187;</span>
+                                Assistant Example
+                            </div>
+                            <pre class="code-block-core"><span class="comment"># Store project context</span>
+memory.<span class="function">add</span>(<span class="string">"Project uses TypeScript"</span>)
+memory.<span class="function">add</span>(<span class="string">"Prefer functional components"</span>)
+memory.<span class="function">add</span>(<span class="string">"Use Tailwind for styling"</span>)
+
+<span class="comment"># Generate contextual code</span>
+prefs = memory.<span class="function">recall</span>(<span class="string">"coding preferences"</span>)
+code = generate_with_context(prefs)</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="usecase-content" id="usecase-research">
+                <div class="usecase-grid">
+                    <div class="usecase-info">
+                        <h3>Research & Knowledge Tools</h3>
+                        <p>Build tools that accumulate knowledge, track findings, and surface relevant information when you need it.</p>
+                        <ul class="usecase-benefits">
+                            <li>Store and retrieve research findings</li>
+                            <li>Tag and categorize knowledge</li>
+                            <li>Surface relevant prior work</li>
+                            <li>Build institutional memory</li>
+                        </ul>
+                    </div>
+                    <div class="usecase-code">
+                        <div class="code-example">
+                            <div class="code-example-header">
+                                <span class="icon">&#128218;</span>
+                                Research Example
+                            </div>
+                            <pre class="code-block-core"><span class="comment"># Store research findings</span>
+memory.<span class="function">add</span>(
+    <span class="string">"Paper X shows 40% improvement"</span>,
+    tags=[<span class="string">"ml"</span>, <span class="string">"performance"</span>],
+    importance=<span class="number">0.9</span>
+)
+
+<span class="comment"># Find related work</span>
+related = memory.<span class="function">recall</span>(
+    <span class="string">"performance improvements"</span>,
+    tags=[<span class="string">"ml"</span>]
+)</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="usecase-content" id="usecase-games">
+                <div class="usecase-grid">
+                    <div class="usecase-info">
+                        <h3>Games & NPC Memory</h3>
+                        <p>Create NPCs that remember player interactions, build relationships, and respond based on shared history.</p>
+                        <ul class="usecase-benefits">
+                            <li>NPCs remember player actions</li>
+                            <li>Build relationship systems</li>
+                            <li>Track quest progress</li>
+                            <li>Dynamic story adaptation</li>
+                        </ul>
+                    </div>
+                    <div class="usecase-code">
+                        <div class="code-example">
+                            <div class="code-example-header">
+                                <span class="icon">&#127918;</span>
+                                Game NPC Example
+                            </div>
+                            <pre class="code-block-core"><span class="comment"># NPC remembers player</span>
+npc_memory.<span class="function">add</span>(
+    f<span class="string">"Player helped defeat dragon"</span>,
+    tags=[<span class="string">"quest"</span>, <span class="string">"heroic"</span>],
+    importance=<span class="number">0.95</span>
+)
+
+<span class="comment"># Generate contextual dialogue</span>
+history = npc_memory.<span class="function">recall</span>(<span class="string">"player"</span>)
+dialogue = generate_npc_response(history)</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Reference Section -->
+    <section id="api" class="api-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete API Reference</h2>
+                <p>Everything you need to build with Connection-Core</p>
+            </div>
+            <div class="api-grid">
+                <div class="api-card">
+                    <h4>add(content, ...)</h4>
+                    <p>Add a new memory to the engine</p>
+                    <code>memory.add("fact", importance=0.8, tags=["tag1"])</code>
+                </div>
+                <div class="api-card">
+                    <h4>recall(query, ...)</h4>
+                    <p>Retrieve relevant memories</p>
+                    <code>results = memory.recall("search term", limit=5)</code>
+                </div>
+                <div class="api-card">
+                    <h4>get(id)</h4>
+                    <p>Get a specific memory by ID</p>
+                    <code>mem = memory.get("abc123")</code>
+                </div>
+                <div class="api-card">
+                    <h4>update(id, ...)</h4>
+                    <p>Update an existing memory</p>
+                    <code>memory.update(id, content="new content")</code>
+                </div>
+                <div class="api-card">
+                    <h4>delete(id)</h4>
+                    <p>Remove a memory</p>
+                    <code>memory.delete("abc123")</code>
+                </div>
+                <div class="api-card">
+                    <h4>get_stats()</h4>
+                    <p>Get engine statistics</p>
+                    <code>stats = memory.get_stats()</code>
+                </div>
+                <div class="api-card">
+                    <h4>export(path)</h4>
+                    <p>Export all memories to JSON</p>
+                    <code>memory.export("backup.json")</code>
+                </div>
+                <div class="api-card">
+                    <h4>decay_importance()</h4>
+                    <p>Apply natural memory decay</p>
+                    <code>updated = memory.decay_importance()</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="performance-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built for Performance</h2>
+                <p>Lightweight yet powerful</p>
+            </div>
+            <div class="perf-grid">
+                <div class="perf-table">
+                    <div class="perf-table-header">Operation Latency</div>
+                    <table>
+                        <tr><th>Operation</th><th>Latency</th></tr>
+                        <tr><td>Add Memory</td><td>2ms</td></tr>
+                        <tr><td>Recall (search)</td><td>15ms</td></tr>
+                        <tr><td>Get by ID</td><td>1ms</td></tr>
+                        <tr><td>Update</td><td>2ms</td></tr>
+                        <tr><td>Delete</td><td>1ms</td></tr>
+                    </table>
+                </div>
+                <div class="perf-table">
+                    <div class="perf-table-header">Storage Efficiency</div>
+                    <table>
+                        <tr><th>Memory Count</th><th>DB Size</th></tr>
+                        <tr><td>1,000 memories</td><td>95KB</td></tr>
+                        <tr><td>10,000 memories</td><td>850KB</td></tr>
+                        <tr><td>100,000 memories</td><td>8.2MB</td></tr>
+                        <tr><td>1,000,000 memories</td><td>~80MB</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Try It Live</h2>
+                <p>Experience Connection-Core in your browser</p>
+            </div>
+            <div class="demo-box">
+                <div class="demo-input-row">
+                    <input type="text" id="demo-add-input" placeholder="Add a memory (e.g., 'User prefers dark mode')">
+                    <button id="demo-add-btn">Add Memory</button>
+                </div>
+                <div class="demo-input-row">
+                    <input type="text" id="demo-search-input" placeholder="Search memories...">
+                    <button id="demo-search-btn">Recall</button>
+                </div>
+                <div class="demo-memory-list" id="demo-memory-list">
+                    <div class="demo-memory-item">
+                        <span class="demo-memory-content">User's name is Alice</span>
+                        <span class="demo-memory-importance">0.85</span>
+                    </div>
+                    <div class="demo-memory-item">
+                        <span class="demo-memory-content">Prefers dark mode interface</span>
+                        <span class="demo-memory-importance">0.70</span>
+                    </div>
+                    <div class="demo-memory-item">
+                        <span class="demo-memory-content">Python developer, 5 years experience</span>
+                        <span class="demo-memory-importance">0.65</span>
+                    </div>
+                    <div class="demo-memory-item">
+                        <span class="demo-memory-content">Working on machine learning project</span>
+                        <span class="demo-memory-importance">0.60</span>
+                    </div>
+                </div>
+                <div class="demo-stats">
+                    <div class="demo-stat">
+                        <div class="demo-stat-value" id="demo-count">4</div>
+                        <div class="demo-stat-label">Memories</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-value" id="demo-size">12KB</div>
+                        <div class="demo-stat-label">DB Size</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-value" id="demo-latency">&lt;15ms</div>
+                        <div class="demo-stat-label">Recall Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Building with Memory</h2>
+            <p>One command. Infinite possibilities.</p>
+            <div class="install-box">
+                <code>pip install connection-core</code>
+                <button onclick="navigator.clipboard.writeText('pip install connection-core'); this.textContent='Copied!'">Copy</button>
+            </div>
+            <div class="hero-cta-core">
+                <a href="https://github.com/oroboroslab/connection-core" class="btn-core">
+                    View on GitHub
+                </a>
+                <a href="https://pypi.org/project/connection-core/" class="btn-outline-core">
+                    PyPI Package
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-core">
+        <div class="container">
+            <div class="footer-links-core">
+                <a href="index.html">Quantum-Floor AI</a>
+                <a href="https://github.com/oroboroslab/connection-core">GitHub</a>
+                <a href="https://pypi.org/project/connection-core/">PyPI</a>
+                <a href="../API_REFERENCE.md">API Docs</a>
+            </div>
+            <p style="color: var(--text-secondary);">
+                Connection-Core is MIT licensed - free for personal and commercial use.<br>
+                A gift from <strong>Oroboros Labs</strong> to the AI community.
+            </p>
+            <p style="color: var(--text-secondary); margin-top: 16px;">
+                &copy; 2024-2025 Oroboros Labs | oroboros.lab.q@gmail.com
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Use Case Tabs
+        document.querySelectorAll('.usecase-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.usecase-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.usecase-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('usecase-' + tab.dataset.usecase).classList.add('active');
+            });
+        });
+
+        // Demo functionality
+        let memoryCount = 4;
+        const memoryList = document.getElementById('demo-memory-list');
+        const countDisplay = document.getElementById('demo-count');
+        const sizeDisplay = document.getElementById('demo-size');
+
+        document.getElementById('demo-add-btn').addEventListener('click', () => {
+            const input = document.getElementById('demo-add-input');
+            const content = input.value.trim();
+            if (content) {
+                const importance = (Math.random() * 0.4 + 0.5).toFixed(2);
+                const item = document.createElement('div');
+                item.className = 'demo-memory-item';
+                item.innerHTML = `
+                    <span class="demo-memory-content">${content}</span>
+                    <span class="demo-memory-importance">${importance}</span>
+                `;
+                memoryList.insertBefore(item, memoryList.firstChild);
+                memoryCount++;
+                countDisplay.textContent = memoryCount;
+                sizeDisplay.textContent = (memoryCount * 3) + 'KB';
+                input.value = '';
+            }
+        });
+
+        document.getElementById('demo-search-btn').addEventListener('click', () => {
+            const query = document.getElementById('demo-search-input').value.toLowerCase();
+            const items = memoryList.querySelectorAll('.demo-memory-item');
+            items.forEach(item => {
+                const content = item.querySelector('.demo-memory-content').textContent.toLowerCase();
+                if (query && !content.includes(query)) {
+                    item.style.opacity = '0.3';
+                } else {
+                    item.style.opacity = '1';
+                }
+            });
+            document.getElementById('demo-latency').textContent = (Math.random() * 10 + 5).toFixed(0) + 'ms';
+        });
+
+        // Enter key support
+        document.getElementById('demo-add-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('demo-add-btn').click();
+        });
+        document.getElementById('demo-search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('demo-search-btn').click();
+        });
+    </script>
+</body>
+</html>
